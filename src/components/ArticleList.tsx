@@ -9,10 +9,10 @@ export function ArticleList() {
     data: articleList,
   } = useQuery({ queryKey: ['articleList'], queryFn: articleApi.getAll })
   if (isLoading) {
-    return <h2>Loading...</h2>
+    return <p>Loading...</p>
   }
   if (isError) {
-    return <h3>Error: {error.message}</h3>
+    return <p>Error: {error.message}</p>
   }
   return (
     <>{articleList?.map((article) => <ArticleListCell key={article.id} article={article} />)}</>
