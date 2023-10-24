@@ -19,7 +19,6 @@ export function ModalWindow({ isOpen, onClose, postID }: ModalWindowProps) {
     },
   })
   return (
-    //Modalの閉じるボタン以外でModalを閉じたくなかったのでonCloseを消したが、型エラーになるので空の関数を定義
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
