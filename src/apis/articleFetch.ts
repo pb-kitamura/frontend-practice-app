@@ -9,11 +9,11 @@ export const articleApi = {
     return data.items
   },
   async getDetail(postid: string) {
-    const { data } = await axios.get<ArticleInfo>(endPointURL + '/' + postid)
+    const { data } = await axios.get<ArticleInfo>(`${endPointURL}/${postid}`)
     return data
   },
   async delete(postid: string) {
-    const { data } = await axios.delete<ArticleInfo>(endPointURL + '/' + postid)
+    const { data } = await axios.delete<ArticleInfo>(`${endPointURL}/${postid}`)
     return data
   },
   // async post()

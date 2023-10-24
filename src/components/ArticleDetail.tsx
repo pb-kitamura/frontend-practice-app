@@ -29,7 +29,7 @@ export function ArticleDetail({ postID }: { postID: string }) {
       <Flex w='95%' justifyContent='end'>
         <p>更新日: {convertDateTimeFormat(articleDetail?.updatedAt)}</p>
       </Flex>
-      <Box mx='auto' outline='2px solid 	#faebD7' w='80%' bgColor='gray.100' rounded='md' p='5'>
+      <Box mx='auto' outline='2px solid #faebD7' w='80%' bgColor='gray.100' rounded='md' p='5'>
         <p>{articleDetail?.content}</p>
       </Box>
     </Stack>

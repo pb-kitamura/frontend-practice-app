@@ -2,7 +2,7 @@ import { Modal, ModalOverlay, ModalContent } from '@chakra-ui/modal'
 import { Button, VStack, Box, CloseButton } from '@chakra-ui/react'
 import { articleApi } from '@/apis/articleFetch'
 import { useMutation } from '@tanstack/react-query'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 
 type ModalWindowProps = {
   isOpen: boolean
@@ -11,15 +11,16 @@ type ModalWindowProps = {
 }
 
 export function ModalWindow({ isOpen, onClose, postID }: ModalWindowProps) {
+  const router = useRouter()
   const { mutate, isError, error, isPending } = useMutation({
     mutationFn: () => articleApi.delete(postID),
     onSuccess: () => {
-      Router.push('/')
+      router.push('/')
     },
   })
   return (
     //Modalの閉じるボタン以外でModalを閉じたくなかったのでonCloseを消したが、型エラーになるので空の関数を定義
-    <Modal isOpen={isOpen} onClose={() => {}}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <CloseButton ml='auto' mr='0' onClick={onClose} />
