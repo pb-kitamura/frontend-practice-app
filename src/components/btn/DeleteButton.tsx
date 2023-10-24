@@ -1,8 +1,9 @@
 import { Button } from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/hooks'
-import { ModalWindow } from '../ModalWindow'
-export function DeleteButton({ postID }: { postID: string }) {
-  const { isOpen, onClose, onOpen } = useDisclosure()
+type DeleteButtonProps = {
+  postID: string
+  onOpen: () => void
+}
+export function DeleteButton({ postID, onOpen }: DeleteButtonProps) {
   return (
     <>
       <Button
@@ -17,7 +18,6 @@ export function DeleteButton({ postID }: { postID: string }) {
       >
         記事削除
       </Button>
-      <ModalWindow isOpen={isOpen} onClose={onClose} postID={postID} />
     </>
   )
 }
