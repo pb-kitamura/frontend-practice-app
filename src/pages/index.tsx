@@ -1,5 +1,5 @@
 import { ArticleList } from '@/components/ArticleList'
-import { CreateButton } from '@/components/createButton'
+import { CreateButton } from '@/components/btn/CreateButton'
 export default function Home() {
   return (
     <main>

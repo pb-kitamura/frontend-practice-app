@@ -25,7 +25,7 @@ export function ArticleListCell({ article }: { article: ArticleInfo }) {
   )
 }
 
-function convertDateFormat(dateString: string | undefined): string {
+export function convertDateFormat(dateString: string | undefined): string {
   // 入力文字列をDateオブジェクトに変換
   if (dateString === undefined) {
     return '9999/99/99'
