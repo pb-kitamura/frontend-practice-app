@@ -10,7 +10,10 @@ import { ModalWindow } from '@/components/ModalWindow'
 export default function Home() {
   const router = useRouter()
   const { isOpen, onClose, onOpen } = useDisclosure()
-  const postID: string = typeof router.query.postid === 'string' ? router.query.postid : ''
+  const postID: string = router.query.postid as string
+  if (postID === undefined) {
+    return null
+  }
   return (
     <>
       <ArticleIndexLink />

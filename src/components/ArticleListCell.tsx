@@ -4,24 +4,24 @@ import Link from 'next/link'
 
 export function ArticleListCell({ article }: { article: ArticleInfo }) {
   return (
-    <Flex
-      w='80%'
-      bgColor='orange.200'
-      p='5'
-      rounded='md'
-      mx=' auto '
-      boxShadow='xl'
-      _hover={{ bgColor: 'orange.400', fontWeight: '600' }}
-      my='7'
-      outline='4px solid orange'
-      justifyContent='space-between'
-      alignItems='flex-end'
-    >
-      <Text fontSize='xl'>
-        <Link href={'/post/' + article.id}>{article.title}</Link>
-      </Text>
-      <Text>{convertDateFormat(article.updatedAt)}</Text>
-    </Flex>
+    <Link href={`/post/${article.id}`}>
+      <Flex
+        w='80%'
+        bgColor='orange.200'
+        p='5'
+        rounded='md'
+        mx=' auto '
+        boxShadow='xl'
+        _hover={{ bgColor: 'orange.400', fontWeight: '600' }}
+        my='7'
+        outline='4px solid orange'
+        justifyContent='space-between'
+        alignItems='flex-end'
+      >
+        <Text fontSize='xl'>{article.title}</Text>
+        <Text>{convertDateFormat(article.updatedAt)}</Text>
+      </Flex>
+    </Link>
   )
 }
 
