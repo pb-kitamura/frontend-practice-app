@@ -31,7 +31,7 @@ export default function Edit() {
   const { data: articleDetail } = useQuery({
     queryKey: ['articleDetail'],
     queryFn: () => articleApi.getDetail(postID),
-    enabled: !postID,
+    enabled: !!postID,
   })
   const { mutate, isError, error, isPending } = useMutation({
     mutationFn: (request: ArticleRequest) => articleApi.put(postID, request),
