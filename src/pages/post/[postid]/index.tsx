@@ -11,8 +11,8 @@ export default function Home() {
   const router = useRouter()
   const { isOpen, onClose, onOpen } = useDisclosure()
   const postID: string = router.query.postid as string
-  if (postID === undefined) {
-    return null
+  if (!postID) {
+    return
   }
   return (
     <>

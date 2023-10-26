@@ -31,7 +31,7 @@ export default function Edit() {
   const { data: articleDetail } = useQuery({
     queryKey: ['articleDetail'],
     queryFn: () => articleApi.getDetail(postID),
-    enabled: postID !== undefined,
+    enabled: !postID,
   })
   const { mutate, isError, error, isPending } = useMutation({
     mutationFn: (request: ArticleRequest) => articleApi.put(postID, request),
@@ -39,8 +39,8 @@ export default function Edit() {
       router.push(`/post/${postID}`)
     },
   })
-  if (postID === undefined) {
-    return null
+  if (!postID) {
+    return
   }
   return (
     <FormControl mt='16'>
